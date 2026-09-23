@@ -1,0 +1,24 @@
+# Factorial Program
+
+## Aim
+To implement and analyze the factorial program using iterative and recursive methods.
+
+## Programs
+
+### 1. Iterative Method
+Calculates the factorial of a number using a loop.
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1)
+
+### 2. Recursive Method
+Calculates the factorial of a number using recursion.
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(n)
+
+## Language Used
+Python
+
+## Conclusion
+Both methods correctly calculate the factorial of a given number. The iterative method uses less extra memory, while the recursive method uses function calls.
