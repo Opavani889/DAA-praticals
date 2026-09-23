@@ -1,0 +1,51 @@
+import time
+
+count = int(input("Enter the number of elements: "))
+
+data = []
+
+print("Enter the elements:")
+for i in range(count):
+    data.append(int(input()))
+
+item = int(input("Enter the element to search: "))
+
+data.sort()
+
+start = time.perf_counter()
+
+left = 0
+right = count - 1
+result = -1
+
+while left <= right:
+
+    middle = (left + right) // 2
+
+    if data[middle] == item:
+        result = middle
+        break
+
+    elif data[middle] < item:
+        left = middle + 1
+
+    else:
+        right = middle - 1
+
+end = time.perf_counter()
+
+print("\nSorted Array:", data)
+
+print("\n----- Binary Search -----")
+
+if result != -1:
+    print(f"Element found at position {result + 1}")
+else:
+    print("Element not found")
+
+print(f"Execution Time: {end - start:.10f} seconds")
+
+print("\nTime Complexities:")
+print("Best Case    : O(1)")
+print("Average Case : O(log n)")
+print("Worst Case   : O(log n)")
