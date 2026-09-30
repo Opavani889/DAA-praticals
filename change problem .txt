@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int coins[] = {1, 4, 6};
+    int n = 3;
+    int amount = 8;
+
+    int dp[amount + 1];
+
+    // Base case
+    dp[0] = 0;
+
+    // Initialize DP array
+    for (int i = 1; i <= amount; i++) {
+        dp[i] = INT_MAX;
+    }
+
+    // Dynamic Programming
+    for (int i = 1; i <= amount; i++) {
+        for (int j = 0; j < n; j++) {
+            if (coins[j] <= i && dp[i - coins[j]] != INT_MAX) {
+                int result = dp[i - coins[j]] + 1;
+
+                if (result < dp[i]) {
+                    dp[i] = result;
+                }
+            }
+        }
+    }
+
+    printf("Coins: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", coins[i]);
+    }
+
+    printf("\nAmount: %d", amount);
+    printf("\nMinimum number of coins required: %d\n", dp[amount]);
+
+    return 0;
+}
